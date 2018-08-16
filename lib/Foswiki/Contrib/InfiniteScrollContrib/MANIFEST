@@ -1,3 +1,4 @@
+!noci
 data/System/InfiniteScrollContrib.txt 0644
 lib/Foswiki/Contrib/InfiniteScrollContrib/Config.spec 0644
 lib/Foswiki/Contrib/InfiniteScrollContrib/Core.pm 0644
