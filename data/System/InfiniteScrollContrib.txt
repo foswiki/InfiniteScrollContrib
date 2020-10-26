@@ -1,8 +1,8 @@
-%META:TOPICINFO{author="ProjectContributor" comment="reprev" date="1364485421" format="1.1" reprev="10" version="1"}%
+%META:TOPICINFO{author="micha" comment="reprev" date="1572621509" format="1.1" reprev="10" version="2"}%
 ---+!! %TOPIC%
 %FORMFIELD{"Description"}%
 
-Based on http://www.infinite-scroll.com/ by Paul Irish & Luke Shumard (with some modifications available at https://github.com/MichaelDaum/infinite-scroll as well).
+Based on https://infinite-scroll.com/ by Paul Irish & Luke Shumard (with some modifications available at https://github.com/MichaelDaum/infinite-scroll as well).
 
 %TOC%
 
@@ -222,19 +222,20 @@ Example:
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
+|  22 Oct 2020 | fixed compatibility with jquery-3 |
 |  16 Aug 2018 | maintenance and docu |
 |  28 Mar 2013 | fixed demo |
-|  01 Oct 2012 | fix for newer jqueries |
+|  01 Oct 2012 | fixed for newer jqueries |
 |  24 Feb 2012 | fixed syntax error breaking dependency check of configure and pseudo-install |
 |  06 Jun 2011 | initial release |
 
 %META:FORM{name="PackageForm"}%
 %META:FIELD{name="Author" title="Author" value="Michael Daum"}%
-%META:FIELD{name="Copyright" title="Copyright" value="&copy; Paul Irish & Luke Shumard http://www.infinite-scroll.com, Michael Daum http://michaeldaumconsulting.com"}%
+%META:FIELD{name="Version" title="Version" value="%25$VERSION%25"}%
+%META:FIELD{name="Release" title="Release" value="%25$RELEASE%25"}%
 %META:FIELD{name="Description" title="Description" value="%25$SHORTDESCRIPTION%25"}%
-%META:FIELD{name="Home" title="Home" value="Foswiki:Extensions/%TOPIC%"}%
+%META:FIELD{name="Repository" title="Repository" value="https://github.com/foswiki/%25TOPIC%25"}%
+%META:FIELD{name="Copyright" title="Copyright" value="&copy; Paul Irish & Luke Shumard http://www.infinite-scroll.com, Michael Daum"}%
 %META:FIELD{name="License" title="License" value="licensed GPL & MIT"}%
-%META:FIELD{name="Release" title="Release" value="%$RELEASE%"}%
-%META:FIELD{name="Repository" title="Repository" value="https://github.com/foswiki/%TOPIC%"}%
-%META:FIELD{name="Support" title="Support" value="Foswiki:Support/%TOPIC%"}%
-%META:FIELD{name="Version" title="Version" value="%$VERSION%"}%
+%META:FIELD{name="Home" title="Home" value="Foswiki:Extensions/%25TOPIC%25"}%
+%META:FIELD{name="Support" title="Support" value="Foswiki:Support/%25TOPIC%25"}%

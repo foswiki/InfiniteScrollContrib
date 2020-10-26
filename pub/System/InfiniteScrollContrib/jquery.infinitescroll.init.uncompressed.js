@@ -1,3 +1,4 @@
+"use strict";
 jQuery(function($) {
 
   var defaults = {
@@ -11,8 +12,9 @@ jQuery(function($) {
     loadingImg: foswiki.getPreference("PUBURLPATH")+"/"+foswiki.getPreference("SYSTEMWEB")+"/InfiniteScrollContrib/loading.gif"
   };
 
-  $(".jqInfiniteScroll:not(.jqInitedInfiniteScroll)").livequery(function() {
-    var $this = $(this), opts = $.extend({}, defaults, $this.metadata());
-    $this.addClass("jqInitedInfiniteScroll").infinitescroll(opts);
+  $(".jqInfiniteScroll").livequery(function() {
+    var $this = $(this), 
+        opts = $.extend({}, defaults, $this.metadata());
+    $this.infinitescroll(opts);
   });
 });

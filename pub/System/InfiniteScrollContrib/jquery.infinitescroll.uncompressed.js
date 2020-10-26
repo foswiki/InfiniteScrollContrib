@@ -123,7 +123,7 @@
 
             var opts = this.options;
 
-            if ($.isFunction(opts.pathParse)) {
+            if (typeof(opts.pathParse) === "function") {
                     path = opts.pathParse(path, opts.currPage);
             } else if (path.match(/^(.*?)\b2\b(.*?)$/)) {
                     path = path.match(/^(.*?)\b2\b(.*?)$/).slice(1).join(opts.currPage);
@@ -301,11 +301,11 @@
 
             if (binding == 'unbind') {
 
-                (this.options.binder).unbind('smartscroll.infscr.' + instance.options.infid);
+                (this.options.binder).off('smartscroll.infscr.' + instance.options.infid);
 
             } else {
 
-                (this.options.binder)[binding]('smartscroll.infscr.' + instance.options.infid, function() {
+                (this.options.binder).on('smartscroll.infscr.' + instance.options.infid, function() {
                     instance.setup();
                 });
 
@@ -372,7 +372,7 @@
             opts.isDuringAjax = true;
 
             // this is where the loadingStart function goes!!!
-            //($.isFunction(opts.loadingStart)) ? opts.loadingStart() : /* default*/ '';
+            //(typeof(opts.loadingStart)) === "function" ? opts.loadingStart() : /* default*/ '';
 
             opts.loadingMsg.appendTo(opts.loadMsgSelector).show(opts.loadingMsgRevealSpeed, function() {
 
@@ -491,7 +491,7 @@
                         // return $.error('Method ' + options + ' cannot be called until Infinite Scroll is setup');
 						return false;
                     }
-                    if (!$.isFunction(instance[options]) || options.charAt(0) === "_") {
+                    if (typeof(instance[options]) !== "function" || options.charAt(0) === "_") {
                         // return $.error('No such method ' + options + ' for Infinite Scroll');
 						return false;
                     }
@@ -546,10 +546,10 @@
 
     event.special.smartscroll = {
         setup: function() {
-            $(this).bind("scroll", event.special.smartscroll.handler);
+            $(this).on("scroll", event.special.smartscroll.handler);
         },
         teardown: function() {
-            $(this).unbind("scroll", event.special.smartscroll.handler);
+            $(this).off("scroll", event.special.smartscroll.handler);
         },
         handler: function(event, execAsap) {
             // Save the context
@@ -565,7 +565,7 @@
 
             scrollTimeout = window.setTimeout(
                 function() {
-                        jQuery.event.handle.apply(context, args);
+                        jQuery.event.dispatch.apply(context, args);
                 }, 
                 execAsap === "execAsap" ? 0 : 100
             );
@@ -573,7 +573,7 @@
     };
 
     $.fn.smartscroll = function(fn) {
-        return fn ? this.bind("smartscroll", fn) : this.trigger("smartscroll", ["execAsap"]);
+        return fn ? this.on("smartscroll", fn) : this.trigger("smartscroll", ["execAsap"]);
     };
 
 
