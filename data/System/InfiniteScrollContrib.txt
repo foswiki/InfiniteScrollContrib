@@ -153,7 +153,7 @@ Note that you can override these default class names with any other jQuery selec
 So a simple skelleton will look like this:
 
 <verbatim class="html">
-<div class="jqInfiniteScroll {param: 'value', param: 'value', ...}">
+<div class="jqInfiniteScroll" data-param1="value1" data-param2="value2">
   <div class="jqInfiniteScrollItem">
      ... search hit ...
   </div>
@@ -175,7 +175,7 @@ provided as  a =pathParse(path, page)= function.
 Example:
 
 <verbatim class="js">
-<div class="jqInfiniteScroll {pathParse: function(path, page) { return path.match(/^.*page=)\d+/(.*)$/).slice(1).join(page); }}">
+<div class="jqInfiniteScroll" data-path-parse="function(path, page) { return path.match(/^.*page=)\d+/(.*)$/).slice(1).join(page); }">
 ...
 </div>
 </verbatim>
@@ -183,7 +183,7 @@ Example:
 ---++ Example
 %JQREQUIRE{"infinitescroll"}%
 
-<div id="testScroller" class="jqInfiniteScroll {localMode:true, bufferPx:100, zeroBased:false}">
+<div id="testScroller" class="jqInfiniteScroll" data-local-mode="true" data-buffer-px="100" data-zero-based="false">
 %STARTSECTION{"result"}%
 <div class="jqInfiniteScrollItem">
 %SEARCH{
@@ -222,6 +222,7 @@ Example:
 ---++ Change History
 
 %TABLE{columnwidths="7em" tablewidth="100%"}%
+|  19 Jan 2024 | replace metadata with html5 data |
 |  22 Oct 2020 | fixed compatibility with jquery-3 |
 |  16 Aug 2018 | maintenance and docu |
 |  28 Mar 2013 | fixed demo |

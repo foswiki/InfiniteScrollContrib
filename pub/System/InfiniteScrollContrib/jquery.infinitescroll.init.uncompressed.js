@@ -9,12 +9,13 @@ jQuery(function($) {
     loadingText:'',
     loadingMsgRevealSpeed: 0,
     zeroBased: true,
-    loadingImg: foswiki.getPreference("PUBURLPATH")+"/"+foswiki.getPreference("SYSTEMWEB")+"/InfiniteScrollContrib/loading.gif"
+    loadingImg: foswiki.getPreference("PUBURLPATH")+"/"+foswiki.getPreference("SYSTEMWEB")+"/InfiniteScrollContrib/loading.png"
   };
 
   $(".jqInfiniteScroll").livequery(function() {
     var $this = $(this), 
-        opts = $.extend({}, defaults, $this.metadata());
+        opts = $.extend({}, defaults, $this.data());
+
     $this.infinitescroll(opts);
   });
 });
